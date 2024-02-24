@@ -45,7 +45,7 @@ class plexServerConnectionForm extends React.Component<{}, FormState> {
                     console.log("Could not connect to Plex Server with provided details");
                 }
             });
-    }
+    };
 
     onClickSave = () => {
         const { plexServerHost, plexAuthToken } = this.state;
@@ -57,7 +57,22 @@ class plexServerConnectionForm extends React.Component<{}, FormState> {
                     console.log("Could not save Plex Connection details to database");
                 }
             });
-    }
+    };
+
+    componentDidMount = () =>{
+        PlexService.getConnection()
+            .then((response: any) => {
+                console.log(response.data)
+                if (response.status == 200 && response.data.plexConnection != null) {
+                    this.setState({
+                        plexServerHost: response.data.plexConnection.hostUrl,
+                        plexAuthToken: response.data.plexConnection.hostToken
+                    });
+                } else {
+                    console.log("Could not get Plex Connection information from the database");
+                }
+            });
+    };
 
     render() {
         return(
@@ -81,6 +96,6 @@ class plexServerConnectionForm extends React.Component<{}, FormState> {
             </div>
         );
     }
-}
+};
 
 export default plexServerConnectionForm;
