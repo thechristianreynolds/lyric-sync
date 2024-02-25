@@ -33,7 +33,7 @@ class plexServerConnectionForm extends React.Component<{}, FormState> {
 
     onClickTest = () => {
         const { plexServerHost, plexAuthToken } = this.state;
-        if ((localStorage.getItem("plexServerHost") == plexServerHost) && localStorage.getItem("plexAuthToken") == plexAuthToken) {
+        if (!(localStorage.getItem("plexServerHost") == plexServerHost) && !localStorage.getItem("plexAuthToken") == plexAuthToken) {
             console.log("Plex Connection data not tested as it did not change.");
             this.setState({
                 saveDisabled: false

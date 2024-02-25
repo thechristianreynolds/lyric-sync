@@ -5,6 +5,7 @@ import './index.css'
 import './App.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import PlexServerConnection from './routes/plexServerConnection.tsx'
+import LibrarySelecor from './routes/library.tsx'
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
       {
         path: "plexServerConnection",
         element: <PlexServerConnection />
+      },
+      {
+        path: "library",
+        element: <LibrarySelecor />
       }
     ]
   }

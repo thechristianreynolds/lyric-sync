@@ -14,8 +14,8 @@ export default function() {
                 <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay"></label>
                 <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
                     {/*Page content here*/}
+                    <li><Link to={`/library`}>Library</Link></li>
                     <li><Link to={`/plexServerConnection`}>Plex Server Connection</Link></li>
-                    <li><a>Sidebar Item 2</a></li>
                 </ul>
             </div>
         </div>
